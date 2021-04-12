@@ -1,0 +1,13 @@
+class EdgeInfo {
+	public int u;
+	public int v;
+
+	public EdgeInfo(int u, int v) {
+		this.u = u;
+		this.v = v;
+	}
+
+	public String toString() {
+		return "(" + u + "," + v + ")";
+	}
+}
