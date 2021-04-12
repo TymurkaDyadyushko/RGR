@@ -1,0 +1,19 @@
+public class Test{
+    public List<Integer>[] graph = readGraph();
+    public boolean[] used = new boolean[graph.length];
+
+    public static void main(String[] args) {
+        //test method Depth-first search
+        dfs(used.length);
+    }
+
+    public static void dfs(int pos) {
+        used[pos] = true;
+        System.out.println(pos);
+        for (int next : graph[pos]){
+            if (!used[next]){
+                dfs(next);
+            }
+        }
+    }
+}
