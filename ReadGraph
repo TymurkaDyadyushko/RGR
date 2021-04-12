@@ -1,0 +1,29 @@
+public class ReadGraph {
+	public static GraphInfo readGraph(String filename) {
+		GraphInfo g = new GraphInfo();
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+
+			g.name = br.readLine();
+			g.nNodes = Integer.parseInt(br.readLine());
+			g.nEdges = Integer.parseInt(br.readLine());
+
+			g.edges = new EdgeInfo[g.nEdges];
+
+			for (int i=0; i<g.nEdges; i++) {
+				String s = br.readLine();
+				StringTokenizer st = new StringTokenizer(s);
+
+				g.edges[i] = new EdgeInfo(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+			}
+
+			br.close();
+		}
+		catch (Exception e) {
+			return null;
+		}
+
+		return g;
+	}
+}
